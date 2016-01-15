@@ -1,0 +1,13 @@
+{
+    "name": "${PLUGIN_NAME}",
+    "author": "${AUTHOR_NAME}",
+    "main": "${PLUGIN_NAME}\\${PLUGIN_NAME}",
+    "api": [
+        ""
+    ],
+    "version": {
+        "major": 2,
+        "minor": 0
+    },
+    "nextBuild": 9
+}
