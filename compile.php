@@ -13,7 +13,7 @@
  * @author PEMapModder
  */
 
-if(version_compare(PHP_VERSION, "7.0.0", "<")){
+if(version_compare(PHP_VERSION, "5.3.0", "<")){
 	echo "Fatal: This entry script requires PHP >=7.0.0!\n";
 	exit;
 }
@@ -108,18 +108,18 @@ $phar->startBuffering();
 $phar->addFromString("plugin.yml", yaml_emit([
 	"name" => $NAME,
 	"author" => $info->author,
-	"authors" => $info->authors ?? [],
+	"authors" => isset($info->authors) ? $info->authors : [],
 	"main" => $info->main,
 	"api" => $info->api,
-	"depend" => $info->depend ?? [],
-	"softdepend" => $info->softdepend ?? [],
-	"loadbefore" => $info->loadbefore ?? [],
-	"description" => $info->description ?? "",
-	"website" => $info->website ?? "",
-	"prefix" => $info->prefix ?? $NAME,
-	"load" => $info->load ?? "POSTWORLD",
+	"depend" => isset($info->depend) ? $info->depend : [],
+	"softdepend" => isset($info->softdepend) ? $info->softdepend : [],
+	"loadbefore" => isset($info->loadbefore) ? $info->loadbefore : [],
+	"description" => isset($info->description) ? $info->description : "",
+	"website" => isset($info->website) ? $info->website : "",
+	"prefix" => isset($info->prefix) ? $info->prefix : $NAME,
+	"load" => isset($info->load) ? $info->load : "POSTWORLD",
 	"version" => $VERSION,
-	"commands" => $info->commands ?? [],
+	"commands" => isset($info->commands) ? $info->commands : [],
 	"permissions" => $permissions,
 ]));
 addDir($phar, "src", "src");
