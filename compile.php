@@ -14,7 +14,7 @@
  */
 
 if(version_compare(PHP_VERSION, "5.3.0", "<")){
-	echo "Fatal: This entry script requires PHP >=7.0.0!\n";
+	echo "Fatal: This entry script requires PHP >=5.3.0!\n";
 	exit;
 }
 
